@@ -1,0 +1,30 @@
+
+use std::context::Context
+
+//defines contract named GuestBook
+//contract is like a struct in rust
+contract GuestBook {
+    //associate messages with Ethereum addresses
+  //map type(Key, Value) 
+  //limits string size to 100
+  //builtin address type for eth address
+  
+  messages: Map<address, String<100>>
+
+  //pub makes in public
+  // method to sign the guest book
+  //implement functionality
+   pub fn sign(self, ctx: Context, book_msg: String<100>) {
+    self.messages[ctx.msg_sender()] = book_msg
+  }
+
+  pub fn get_msg(self, addr: address) -> String<100> {
+    return self.messages[addr]
+  }
+
+
+  
+}
+
+//GuestBook_abi.json is a JSON representation that describes the binary interface of our contract
+//GuestBook.bin is the compiled binary contract code written in hexadecimal characters.

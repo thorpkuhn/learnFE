@@ -1,0 +1,14 @@
+[
+  {
+    "type": "function",
+    "name": "sign",
+    "inputs": [
+      {
+        "name": "book_msg",
+        "type": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  }
+]
