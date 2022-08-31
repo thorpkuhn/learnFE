@@ -1,0 +1,4 @@
+contract GuestBook {
+   //map type (Key, Value)
+  messages: Map<address, String<100>>
+}
