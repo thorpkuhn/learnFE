@@ -9,7 +9,7 @@ contract GuestBook {
   }
 
   pub fn get_msg(self, addr: address) -> String<100> {
-    return self.messages[addr]
+    return self.messages[addr].to_mem()
   }
 
   

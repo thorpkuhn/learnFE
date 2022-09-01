@@ -14,12 +14,26 @@ contract GuestBook {
   //pub makes in public
   // method to sign the guest book
   //implement functionality
+  // ctx: Context parameter, to access chain and transaction state
+
+  /*The idea is that public contract functions can take a 
+  ctx: Context parameter, to access chain and transaction state.
+   This is similar to how the self parameter provides access to the contract state (aka storage).
+    If a function doesn’t take Context, you can be sure that it doesn’t depend on any “contextual” information
+The intention is for this to be the only way for code to access such information
+ (unless the code calls “unsafe” low-level functions that perform raw evm operations,
+  which can only be done inside of an unsafe {  } block) */
+
+
    pub fn sign(self, ctx: Context, book_msg: String<100>) {
     self.messages[ctx.msg_sender()] = book_msg
   }
 
+  /*When we try to return a reference type such as an array from 
+  the storage of the contract we have to explicitly copy it to memory using the to_mem() function. */
+  // when referencing, copy it to memory first using .to_mem() function
   pub fn get_msg(self, addr: address) -> String<100> {
-    return self.messages[addr]
+    return self.messages[addr].to_mem()
   }
 
 
@@ -28,3 +42,4 @@ contract GuestBook {
 
 //GuestBook_abi.json is a JSON representation that describes the binary interface of our contract
 //GuestBook.bin is the compiled binary contract code written in hexadecimal characters.
+//./fe guest_book.fe --overwrite to overwrite existing build
