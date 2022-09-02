@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@developerdao/hardhat-fe": "^0.5.0",
+    "hardhat": "^2.10.2"
+  }
+}
