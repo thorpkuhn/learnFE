@@ -3,3 +3,5 @@
 /hardhat.config.js
 ./node_modules
 ./cache
+/.env
+./.env
