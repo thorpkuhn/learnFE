@@ -5,3 +5,5 @@
 ./cache
 /.env
 ./.env
+./fe
+/fe
